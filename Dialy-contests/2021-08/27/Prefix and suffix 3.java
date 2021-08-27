@@ -6,7 +6,7 @@ class PrefixAndSuffix {
         String s = sc.next();
         int s_len = s.length();
         int count = 0;
-        if (s_len >= 2) {
+        if (s_len > 1) {
             int suf_start = (s_len + 1) / 2;
             while (suf_start < s_len) {
                 if (s.charAt(suf_start) == s.charAt(count)) {
