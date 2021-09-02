@@ -2,7 +2,7 @@
 // TheatreSquare
 import java.util.Scanner;
 
-class Solution {
+class TheatreSquare {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         long n = sc.nextInt();
