@@ -6,7 +6,7 @@ import java.io.OutputStreamWriter;
 
 // Summing Triplets
 
-class Solution {
+class SummingTriplets {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
