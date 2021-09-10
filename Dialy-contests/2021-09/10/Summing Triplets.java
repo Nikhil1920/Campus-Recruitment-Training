@@ -1,22 +1,27 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.OutputStreamWriter;
 
 // Summing Triplets
 
 class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter log = new BufferedWriter(new OutputStreamWriter(System.out));
         long num_of_cases = Long.parseLong(reader.readLine());
         while (num_of_cases-- > 0) {
             long sum = 0;
-            StringTokenizer tk = new StringTokenizer(reader.readLine());
-            for (int i = 0; i < 3; i++) {
-                sum += Long.parseLong(tk.nextToken());
+            String[] strNums = new String[3];
+            strNums = reader.readLine().split("\\s");
+            for (int i = 0; i < strNums.length; i++) {
+                sum += Long.parseLong(strNums[i]);
             }
-            System.out.println(sum);
+            log.write(sum + "\n");
         }
+        log.flush();
         reader.close();
+        log.close();
     }
 }
