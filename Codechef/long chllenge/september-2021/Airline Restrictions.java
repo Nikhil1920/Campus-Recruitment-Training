@@ -7,24 +7,24 @@ class AirlineRestrictions {
         Scanner sc = new Scanner(System.in);
         int num_of_cases = sc.nextInt();
         while (num_of_cases-- > 0) {
-            int a, b, c, d, e;
-            a = sc.nextInt();
-            b = sc.nextInt();
-            c = sc.nextInt();
-            d = sc.nextInt();
-            e = sc.nextInt();
-            boolean flag = true;
-            if (a + b <= d && c <= e) {
-                flag = true;
-            } else if (b + c <= d && a <= e) {
-                flag = true;
-            } else if (a + c <= d && b <= e) {
-                flag = true;
-            } else {
-                flag = false;
+            int arr[] = new int[3];
+            int sum = 0;
+            boolean result = false;
+            for (int i = 0; i < 3; i++) {
+                arr[i] = sc.nextInt();
+                sum += arr[i];
             }
-
-            System.out.println(flag ? "YES" : "NO");
+            int checked_limit = sc.nextInt();
+            int hand_limit = sc.nextInt();
+            if (sum <= (checked_limit + hand_limit)) {
+                for (int i = 0; i < 3; i++) {
+                    if (arr[i] <= hand_limit && (sum - arr[i]) <= checked_limit) {
+                        result = true;
+                        break;
+                    }
+                }
+            }
+            System.out.println(result ? "YES" : "NO");
         }
         sc.close();
     }
