@@ -2,7 +2,7 @@
 // RumisMatrix
 import java.util.Scanner;
 
-class Solution {
+class RumisMatrix {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num_of_cases = sc.nextInt();
@@ -17,18 +17,14 @@ class Solution {
             }
             int num = sc.nextInt();
             boolean found = false;
-            int start = 0;
-            int end = row_count * column_count - 1;
-            while (start <= end && !found) {
-                int mid = (start + end) / 2;
-                int mid_val = matrix[mid / column_count][mid % column_count];
-                if (mid_val == num) {
+            int row = 0, column = column_count - 1;
+            while (!found && row < row_count && column >= 0) {
+                if (matrix[row][column] == num)
                     found = true;
-                } else if (mid_val < num) {
-                    start = mid + 1;
-                } else {
-                    end = mid - 1;
-                }
+                else if (matrix[row][column] > num)
+                    column--;
+                else
+                    row++;
             }
             System.out.println(found ? "True" : "False");
         }
