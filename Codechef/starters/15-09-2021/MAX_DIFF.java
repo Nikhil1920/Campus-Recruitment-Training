@@ -8,18 +8,13 @@ class MAX_DIFF {
             int range = sc.nextInt();
             int sum = sc.nextInt();
             int max_diff = 0;
-            for (int i = 0; i <= range - 1; i++) {
-                for (int j = i + 1; j <= range && j <= sum; j++) {
-                    if ((i + j) > sum)
-                        break;
-                    if ((i + j) == sum) {
-                        if (Math.abs(i - j) > max_diff) {
-                            max_diff = Math.abs(i - j);
-                        }
-                    }
+            for (int i = 0; i <= range && i <= sum; i++) {
+                int j = sum - i;
+                if (j <= range) {
+                    int diff = (int) Math.abs(i - j);
+                    if (diff > max_diff)
+                        max_diff = diff;
                 }
-                if (i > sum)
-                    break;
             }
             System.out.println(max_diff);
         }
