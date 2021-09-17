@@ -1,6 +1,5 @@
 
 // Shuffle-Puffle
-import java.util.Arrays;
 import java.util.Scanner;
 
 class Solution {
@@ -8,19 +7,26 @@ class Solution {
         Scanner sc = new Scanner(System.in);
         int num_of_cases = sc.nextInt();
         while (num_of_cases-- > 0) {
+            int[] count = new int[26];
             String guest = sc.next();
             String host = sc.next();
             String random = sc.next();
-            boolean result = false;
-            guest += host;
-            char[] tempGuest = guest.toCharArray();
-            Arrays.sort(tempGuest);
-            guest = new String(tempGuest);
-            char[] tempRandom = random.toCharArray();
-            Arrays.sort(tempRandom);
-            random = new String(tempRandom);
-            if (guest.equals(random)) {
-                result = true;
+            int[] random_count = new int[26];
+            for (int i = 0; i < guest.length(); i++) {
+                count[guest.charAt(i) - 'A']++;
+            }
+            for (int i = 0; i < host.length(); i++) {
+                count[host.charAt(i) - 'A']++;
+            }
+            for (int i = 0; i < random.length(); i++) {
+                random_count[random.charAt(i) - 'A']++;
+            }
+            boolean result = true;
+            for (int i = 0; i < 26; i++) {
+                if (count[i] != random_count[i]) {
+                    result = false;
+                    break;
+                }
             }
             System.out.println(result ? "YES" : "NO");
         }
